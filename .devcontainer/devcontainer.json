@@ -15,7 +15,7 @@
         "github-cli": {
             "version": "latest"
         },
-		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
         "ghcr.io/devcontainers-contrib/features/meltano:2": {},
         "ghcr.io/jlaundry/devcontainer-features/mssql-odbc-driver:1": {}
     },
@@ -63,7 +63,7 @@
                 "files.trimTrailingWhitespace": true,
                 "isort.args": ["--profile", "black"],
                 "python.pythonPath": "${workspaceFolder}/venv/bin/python",
-				"python.languageServer": "Pylance",
+                "python.languageServer": "Pylance",
                 "python.analysis.typeCheckingMode": "basic",
                 "python.analysis.diagnosticMode": "openFilesOnly",
                 "python.analysis.indexing": true,
@@ -103,7 +103,7 @@
     //"postStartCommand": "meltano install",
 
     // Use 'postCreateCommand' to run commands after the container is created.
-    // "postCreateCommand": "pipx install poetry && python -m venv venv && source venv/bin/activate && pip install -r requirements-dev.txt",
+    // "postCreateCommand": "pipx install poetry && python -m venv venv && source venv/bin/activate && poetry install && pip install meltano",
 
     // Configure tool-specific properties.
     // "customizations": {},
