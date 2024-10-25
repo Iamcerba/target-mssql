@@ -63,13 +63,21 @@ class mssqlConnector(SQLConnector):
         if config.get("sqlalchemy_url"):
             return config["sqlalchemy_url"]
 
+        query = {}
+
+        keywords = config.get("keywords")
+
+        if keywords:
+            query = {i["key"]: i["value"] for i in keywords}
+
         connection_url = sqlalchemy.engine.url.URL.create(
-            drivername="mssql+pymssql",
+            drivername="mssql+pyodbc",
             username=config["username"],
             password=config["password"],
             host=config["host"],
             port=config["port"],
             database=config["database"],
+            query=query,
         )
         return str(connection_url)
 

@@ -5,5 +5,15 @@
     "default_target_schema": "dbo",
     "username": "sa",
     "password": "<password>",
-    "batch_size_rows": 10
+    "batch_size_rows": 10,
+    "keywords": [
+        {
+            "key": "Driver",
+            "value": "ODBC Driver 18 for SQL Server"
+        },
+        {
+            "key": "TrustServerCertificate",
+            "value": "yes"
+        }
+    ]
 }

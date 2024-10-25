@@ -45,6 +45,17 @@ class Targetmssql(SQLTarget):
             description="SQL Server database",
         ),
         th.Property(
+            "keywords",
+            th.ArrayType(
+                th.ObjectType(
+                    th.Property("key", th.StringType),
+                    th.Property("value", th.StringType),
+                )
+            ),
+            description="Optional connection string keywords (e.g.: Driver, Authentication, TrustServerCertificate, etc.)",
+            required=False,
+        ),
+        th.Property(
             "default_target_schema",
             th.StringType,
             description="Default target schema to write to",
