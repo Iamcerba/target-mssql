@@ -71,7 +71,8 @@ Regarding connection info, either the `sqlalchemy_url` or `username`, `password`
 | database                 | False    | None    | SQL Server database |
 | default_target_schema    | False    | None    | Default target schema to write to |
 | table_prefix             | False    | None    | Prefix to add to table name |
-| prefer_float_over_numeric| False    |       0 | Use float data type for numbers (otherwise number type is used) |
+| prefer_float_over_numeric| False    | 0       | Use float data type for numbers (otherwise number type is used) |
+| keywords                 | False    | None    | Optional connection string keywords (e.g.: Driver, Authentication, TrustServerCertificate, etc.) |
 | stream_maps              | False    | None    | Config object for stream maps capability. For more information check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html). |
 | stream_map_config        | False    | None    | User-defined config values to be used within map expressions. |
 | flattening_enabled       | False    | None    | 'True' to enable schema flattening and automatically expand nested properties. |

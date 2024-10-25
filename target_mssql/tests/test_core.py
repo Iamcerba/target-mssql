@@ -1,4 +1,5 @@
 """ Attempt at making some standard Target Tests. """
+
 # flake8: noqa
 import io
 from contextlib import redirect_stdout
@@ -18,25 +19,29 @@ from target_mssql.tests.samples.sample_tap_countries.countries_tap import (
 @pytest.fixture()
 def mssql_config():
     return {
-        # "sqlalchemy_url": "mssql+pymssql://sa:p@55w0rd@localhost:1433/master",
+        # "sqlalchemy_url": "mssql+pyodbc://sa:p@55w0rd@host.docker.internal:1433/master?Driver=ODBC+Driver+18+for+SQL+Server&TrustServerCertificate=yes",
         "schema": "dbo",
         "username": "sa",
         "password": "P@55w0rd",
-        "host": "localhost",
+        "host": "host.docker.internal",
         "port": "1433",
         "database": "master",
         "table_prefix": "prfx_",
+        "keywords": [
+            {"key": "Driver", "value": "ODBC Driver 18 for SQL Server"},
+            {"key": "TrustServerCertificate", "value": "yes"},
+        ],
     }
 
 
 @pytest.fixture()
 def mssql_dualconfig():
     return {
-        "sqlalchemy_url": f"mssql+pymssql://sa:P%4055w0rd@localhost:1433/master",
+        "sqlalchemy_url": f"mssql+pyodbc://sa:P%4055w0rd@host.docker.internal:1433/master?Driver=ODBC+Driver+18+for+SQL+Server&TrustServerCertificate=yes",
         "schema": "dbo",
         "username": "sa",
         "password": "wrong_password",
-        "host": "localhost",
+        "host": "host.docker.internal",
         "port": "1433",
         "database": "master",
     }

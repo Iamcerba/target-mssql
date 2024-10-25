@@ -69,9 +69,12 @@
                 "python.analysis.indexing": true,
                 "python.analysis.autoImportCompletions": false,
                 "python.analysis.importFormat": "absolute",
-                "python.testing.pytestEnabled": false,
-                "python.testing.unittestEnabled": true,
+                "python.testing.pytestEnabled": true,
+                "python.testing.unittestEnabled": false,
                 "python.testing.cwd": "${workspaceFolder}",
+                "python.testing.pytestArgs": [
+                    "target_mssql"
+                ],
                 "terminal.integrated.env.windows": {
                     "PYTHONPATH": "${workspaceFolder}"
                 },

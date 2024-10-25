@@ -1,7 +1,7 @@
 {
     "host": "host.docker.internal",
     "port": "1433",
-    "database": "meltano",
+    "database": "master",
     "default_target_schema": "dbo",
     "username": "sa",
     "password": "<password>",
