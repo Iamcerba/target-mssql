@@ -1,0 +1,9 @@
+{
+    "host": "host.docker.internal",
+    "port": "1433",
+    "database": "meltano",
+    "default_target_schema": "dbo",
+    "username": "sa",
+    "password": "<password>",
+    "batch_size_rows": 10
+}

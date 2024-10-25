@@ -1,0 +1,113 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+    "name": "Devcontainer",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "..",
+        "args": {
+            // Update 'VARIANT' to pick a Python version: 3, 3.6, 3.7, 3.8, 3.9
+            "VARIANT": "3.9"
+        }
+    },
+    // Features to add to the dev container. More info: https://containers.dev/features.
+    "features": {
+        "github-cli": {
+            "version": "latest"
+        },
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/devcontainers-contrib/features/meltano:2": {},
+        "ghcr.io/jlaundry/devcontainer-features/mssql-odbc-driver:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                // SQL Tools Database Explorer
+                "mtxr.sqltools",
+                "mtxr.sqltools-driver-sqlite",
+                "RandomFractalsInc.duckdb-sql-tools",
+                "koszti.snowflake-driver-for-sqltools",
+
+                // Other Data Tools
+                "mechatroner.rainbow-csv",
+
+                // Python Editing Support
+                "ms-python.python",
+                "ms-python.black-formatter",
+                "ms-python.isort",
+
+                // Theme + Icons
+                "garytyler.darcula-pycharm",
+                "pkief.material-icon-theme"
+            ],
+            "settings": {
+                "autoDocstring.docstringFormat": "google",
+                "debug.internalConsoleOptions": "neverOpen",
+                "editor.renderWhitespace": "none",
+                "editor.rulers": [
+                    120
+                ],
+                "editor.tokenColorCustomizations.enabled": true,
+                "editor.tokenColorCustomizations": {
+                    "[Darcula Pycharm with Dark GUI]": {
+                        "textMateRules": [
+                            {
+                                "scope": "entity.name.function.python",
+                                "settings": {
+                                    "foreground": "#56A8F5"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "files.trimTrailingWhitespace": true,
+                "isort.args": ["--profile", "black"],
+                "python.pythonPath": "${workspaceFolder}/venv/bin/python",
+				"python.languageServer": "Pylance",
+                "python.analysis.typeCheckingMode": "basic",
+                "python.analysis.diagnosticMode": "openFilesOnly",
+                "python.analysis.indexing": true,
+                "python.analysis.autoImportCompletions": false,
+                "python.analysis.importFormat": "absolute",
+                "python.testing.pytestEnabled": false,
+                "python.testing.unittestEnabled": true,
+                "python.testing.cwd": "${workspaceFolder}",
+                "terminal.integrated.env.windows": {
+                    "PYTHONPATH": "${workspaceFolder}"
+                },
+                "terminal.integrated.env.linux": {
+                    "PYTHONPATH": "${workspaceFolder}"
+                },
+                "[python]": {
+                    "editor.defaultFormatter": "ms-python.black-formatter",
+                    "editor.formatOnPaste": false,
+                    "editor.formatOnSave": true,
+                    "editor.formatOnType": false,
+                    "editor.codeActionsOnSave": {
+                        "source.organizeImports": "explicit"
+                    }
+                },
+                "editor.formatOnSave": false
+            }
+        },
+        "codespaces": {
+            "openFiles": [
+                "./README.md"
+            ]
+        }
+    },
+
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
+
+    //"postStartCommand": "meltano install",
+
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // "postCreateCommand": "pipx install poetry && python -m venv venv && source venv/bin/activate && pip install -r requirements-dev.txt",
+
+    // Configure tool-specific properties.
+    // "customizations": {},
+
+    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+    // "remoteUser": "root"
+}
