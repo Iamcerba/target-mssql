@@ -125,6 +125,7 @@ class mssqlSink(SQLSink):
                 insert_record[column.name] = record.get(column.name)
             insert_records.append(insert_record)
 
+        # TODO: Implement efficient bulk insert method that works with pyodbc
         self.connection.execute(insert_sql, insert_records)
 
         if isinstance(records, list):
@@ -253,6 +254,7 @@ class mssqlSink(SQLSink):
         """  # nosec
 
         with self.connection.begin():
+            # TODO: Replace MERGE operation with INSERT/UPDATE to support Microsoft Fabric Warehouse
             self.connection.execute(merge_sql)
 
     def parse_full_table_name(
